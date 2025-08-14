@@ -8,6 +8,7 @@ body {
   min-height: 100vh;
 }
 
+
 .card {
   text-align: center;
   background: rgba(255, 255, 255, 0.85);
@@ -18,9 +19,33 @@ body {
   max-width: 90%;
 }
 
-.flowers {
-  font-size: 2rem;
+.decorations {
+  font-size: 3rem;
   margin-bottom: 1rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+.title {
+  margin: 0;
+  font-family: "Dancing Script", cursive;
+  font-size: 3rem;
+  color: #ff6fa3;
+}
+
+.message {
+  font-size: 1.2rem;
+  color: #555;
+  margin-top: 0.5rem;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 .button-container {
