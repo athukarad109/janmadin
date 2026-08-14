@@ -491,8 +491,8 @@ img {
 
 .butterflies {
   position: absolute;
-  inset: -8% -4% auto -4%;
-  height: 340px;
+  inset: -10% -6% auto -6%;
+  height: 380px;
   z-index: 0;
   pointer-events: none;
 }
@@ -551,48 +551,66 @@ img {
 
 /* placement + tint + launch vector (--dx/--dy) + stagger, per butterfly */
 .butterfly--1 {
-  top: 2%;
-  left: 10%;
-  width: 48px;
+  top: 0%;
+  left: 8%;
+  width: 66px;
   color: var(--rose);
-  --dx: 90px;
-  --dy: 113px;
+  --dx: 96px;
+  --dy: 120px;
 }
 .butterfly--2 {
-  top: 12%;
-  left: 76%;
-  width: 34px;
+  top: 10%;
+  left: 74%;
+  width: 50px;
   color: var(--deep-rose);
-  --dx: -70px;
-  --dy: 79px;
+  --dx: -74px;
+  --dy: 86px;
   transition-delay: 0.08s;
 }
 .butterfly--3 {
-  top: 46%;
-  left: 4%;
-  width: 30px;
+  top: 48%;
+  left: 3%;
+  width: 46px;
   color: var(--gold);
-  --dx: 110px;
-  --dy: -36px;
+  --dx: 116px;
+  --dy: -40px;
   transition-delay: 0.16s;
 }
 .butterfly--4 {
-  top: 0%;
-  left: 58%;
-  width: 30px;
+  top: -2%;
+  left: 56%;
+  width: 44px;
   color: var(--blush);
-  --dx: -25px;
-  --dy: 120px;
+  --dx: -28px;
+  --dy: 128px;
   transition-delay: 0.24s;
 }
 .butterfly--5 {
-  top: 38%;
-  left: 82%;
-  width: 40px;
+  top: 40%;
+  left: 80%;
+  width: 58px;
   color: var(--rose);
-  --dx: -90px;
-  --dy: -9px;
+  --dx: -96px;
+  --dy: -12px;
   transition-delay: 0.32s;
+}
+.butterfly--6 {
+  top: 26%;
+  left: 30%;
+  width: 52px;
+  color: var(--deep-rose);
+  --dx: 44px;
+  --dy: 24px;
+  transition-delay: 0.4s;
+}
+.butterfly--7 {
+  top: 6%;
+  left: 44%;
+  width: 40px;
+  color: var(--gold);
+  --dx: 8px;
+  --dy: 96px;
+  transition-delay: 0.48s;
 }
 
 .butterfly--1 .bfly-fly {
@@ -610,6 +628,12 @@ img {
 .butterfly--5 .bfly-fly {
   animation-duration: 8.5s;
 }
+.butterfly--6 .bfly-fly {
+  animation-duration: 9s;
+}
+.butterfly--7 .bfly-fly {
+  animation-duration: 10.5s;
+}
 
 .butterfly--2 .bfly,
 .butterfly--4 .bfly {
@@ -620,6 +644,12 @@ img {
 }
 .butterfly--5 .bfly {
   animation-duration: 0.4s;
+}
+.butterfly--6 .bfly {
+  animation-duration: 0.34s;
+}
+.butterfly--7 .bfly {
+  animation-duration: 0.46s;
 }
 
 @keyframes flap {
