@@ -49,6 +49,26 @@
   <body class="is-sealed">
     <div class="stage" aria-hidden="true"></div>
 
+    <!-- Background song. Started on the envelope tap (that gesture is
+         what lets iOS Safari play it). Loops to keep the mood going. -->
+    <audio id="song" src="song.mp3" loop preload="auto" playsinline></audio>
+
+    <div class="music-bar" id="musicBar" hidden>
+      <span class="music-note" aria-hidden="true">&#9835;</span>
+      <span class="music-title">Happy Birthday</span>
+      <button
+        class="music-toggle is-playing"
+        id="musicToggle"
+        type="button"
+        aria-label="Pause the music"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path class="icon-pause" d="M8 5h3v14H8zM13 5h3v14h-3z" />
+          <path class="icon-play" d="M8 5l11 7-11 7z" />
+        </svg>
+      </button>
+    </div>
+
     <!-- ════════════════ THE ENVELOPE ════════════════ -->
     <div class="envelope-scene" id="envelopeScene">
       <button class="envelope" id="envelopeBtn" type="button" aria-label="Open the envelope">
@@ -194,6 +214,8 @@
           <span class="shade-name" id="ch3">Champagne</span>
         </p>
 
+        <!-- Song plays in the background now, so the link is parked.
+             Restore this block to bring back the YouTube button.
         <a
           class="song-link"
           href="https://youtu.be/nn_0zPAfyo8"
@@ -204,6 +226,7 @@
           <span class="song-play" aria-hidden="true"></span>
           <span class="song-text">Click here, cutie patootie</span>
         </a>
+        -->
 
         <p class="closing" data-reveal>Happy birthday, gorgeous. Now go let someone spoil you.</p>
       </section>

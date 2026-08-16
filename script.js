@@ -3,6 +3,42 @@
 
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* ── The music ────────────────────────────────────────── */
+
+  var song = document.getElementById("song");
+  var musicBar = document.getElementById("musicBar");
+  var musicToggle = document.getElementById("musicToggle");
+
+  function reflectPlayState() {
+    var playing = !song.paused;
+    musicToggle.classList.toggle("is-playing", playing);
+    musicToggle.setAttribute(
+      "aria-label",
+      playing ? "Pause the music" : "Play the music"
+    );
+  }
+
+  function showMusicBar() {
+    // sync the icon to whether the song actually started (iOS may block it)
+    reflectPlayState();
+    musicBar.hidden = false;
+    // next frame, so the fade-in transition actually runs
+    window.requestAnimationFrame(function () {
+      musicBar.classList.add("is-visible");
+    });
+  }
+
+  song.addEventListener("play", reflectPlayState);
+  song.addEventListener("pause", reflectPlayState);
+
+  musicToggle.addEventListener("click", function () {
+    if (song.paused) {
+      song.play();
+    } else {
+      song.pause();
+    }
+  });
+
   /* ── The envelope ─────────────────────────────────────── */
 
   var scene = document.getElementById("envelopeScene");
@@ -12,6 +48,16 @@
   function openEnvelope() {
     if (opened) return;
     opened = true;
+
+    // Start the song FIRST, synchronously inside the tap — this is the
+    // gesture iOS Safari needs to allow audio. Reveal the bar once it
+    // actually begins (or immediately if the promise isn't supported).
+    var started = song.play();
+    if (started && typeof started.then === "function") {
+      started.then(showMusicBar).catch(showMusicBar);
+    } else {
+      showMusicBar();
+    }
 
     envelope.classList.add("is-open");
     envelope.disabled = true;
